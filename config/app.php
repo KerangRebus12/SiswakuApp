@@ -166,6 +166,10 @@ return [
          * Package Service Providers...
          */
 
+         /*
+         * Form Service Providers...
+         */
+        App\Providers\FormSiswaServiceProvider::class,
         /*
          * Application Service Providers...
          */

@@ -34,6 +34,20 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </td>
         </tr>
+        <tr>
+        <th class="table-primary">Foto</th>
+        <td>
+        <?php if(isset($siswa->foto)): ?>
+            <img src="<?php echo e(asset('fotoupload/'.$siswa->foto)); ?>" >
+            <?php else: ?>
+                <?php if($siswa->jenis_kelamin == "L"): ?>
+                <img src="<?php echo e(asset('fotoupload/dummmymale.jpg')); ?>" >
+                <?php else: ?>
+                <img src="<?php echo e(asset('fotoupload/dummmyfemale.jpg')); ?>">
+                <?php endif; ?>
+        <?php endif; ?>
+        </td>
+        </tr>
     </table>
 </div>
 <?php $__env->stopSection(); ?>

@@ -157,6 +157,12 @@ return [
         'id_kelas' =>[
             'required' => 'Mohon Isi Kolom KELAS',
         ],
+        'foto' =>[
+            'image' => 'File Yang Di Upload Harus Berupa Gambar',
+            'max' => 'File Tidak Boleh Berukuran Lebih Dari 500 KB',
+            'mimes' => 'File Yang Di Upload Hanya Dengan Format *.jpg, *.jpeg, *.png',
+            'dimensions' => 'File Harus Berukuran 150x180 pixel',
+        ],
     ],
 
     /*

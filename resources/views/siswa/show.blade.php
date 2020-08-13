@@ -35,6 +35,20 @@
         @endforeach
         </td>
         </tr>
+        <tr>
+        <th class="table-primary">Foto</th>
+        <td>
+        @if(isset($siswa->foto))
+            <img src="{{ asset('fotoupload/'.$siswa->foto) }}" >
+            @else
+                @if($siswa->jenis_kelamin == "L")
+                <img src="{{ asset('fotoupload/dummmymale.jpg') }}" >
+                @else
+                <img src="{{ asset('fotoupload/dummmyfemale.jpg') }}">
+                @endif
+        @endif
+        </td>
+        </tr>
     </table>
 </div>
 @stop

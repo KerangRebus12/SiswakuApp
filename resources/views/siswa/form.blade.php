@@ -84,5 +84,29 @@
         @endif
         </div>
         <div class="form-group">
+        @if($errors->any())
+                <div class="form-group {{ $errors->has('foto') ? 'has-error':'has-siccess'}}"></div>
+        @else
+                <div class="form-group"></div>
+        @endif
+                {!! Form::label('foto', 'Foto :') !!}
+                {!! Form::file('foto') !!}
+                @if($errors->has('foto'))
+                <span class="help-block">{{ $errors->first('foto') }}</span>
+                @endif
+                <!-- Menampilkan Foto -->
+                @if(isset($siswa->foto))
+                    @if(isset($siswa->foto))
+                    <img src="{{ asset('fotoupload/'.$siswa->foto) }}" >
+                    @else
+                        @if($siswa->jenis_kelamin == 'L')
+                        <img src="{{ asset('fotoupload/dummymale.jpg') }}" >
+                        @else
+                        <img src="{{ asset('fotoupload/dummyfemale.jpg') }}" >
+                        @endif
+                    @endif
+                @endif
+        </div>
+        <div class="form-group">
         {!!Form::submit('Update', ['class'=>'btn btn-primary form-control'])!!}
         </div>

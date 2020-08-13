@@ -30,9 +30,11 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
+
+        Route::bind('siswa', function($siswa){
+            return \App\Siswa::findOrFail($siswa);
+        });
     }
 
     /**

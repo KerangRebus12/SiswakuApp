@@ -97,6 +97,32 @@
         <?php endif; ?>
         </div>
         <div class="form-group">
+        <?php if($errors->any()): ?>
+                <div class="form-group <?php echo e($errors->has('foto') ? 'has-error':'has-siccess'); ?>"></div>
+        <?php else: ?>
+                <div class="form-group"></div>
+        <?php endif; ?>
+                <?php echo Form::label('foto', 'Foto :'); ?>
+
+                <?php echo Form::file('foto'); ?>
+
+                <?php if($errors->has('foto')): ?>
+                <span class="help-block"><?php echo e($errors->first('foto')); ?></span>
+                <?php endif; ?>
+                <!-- Menampilkan Foto -->
+                <?php if(isset($siswa->foto)): ?>
+                    <?php if(isset($siswa->foto)): ?>
+                    <img src="<?php echo e(asset('fotoupload/'.$siswa->foto)); ?>" >
+                    <?php else: ?>
+                        <?php if($siswa->jenis_kelamin == 'L'): ?>
+                        <img src="<?php echo e(asset('fotoupload/dummymale.jpg')); ?>" >
+                        <?php else: ?>
+                        <img src="<?php echo e(asset('fotoupload/dummyfemale.jpg')); ?>" >
+                        <?php endif; ?>
+                    <?php endif; ?>
+                <?php endif; ?>
+        </div>
+        <div class="form-group">
         <?php echo Form::submit('Update', ['class'=>'btn btn-primary form-control']); ?>
 
         </div><?php /**PATH C:\xampp\htdocs\coba1\resources\views/siswa/form.blade.php ENDPATH**/ ?>
